@@ -1,0 +1,112 @@
+@prefix og:   <https://example.org/olympiagraph/ontology#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+og:Personne a rdfs:Class ;
+    rdfs:label "Personne"@fr ;
+    rdfs:subClassOf foaf:Person .
+
+og:Athlete a rdfs:Class ;
+    rdfs:label "Athlète"@fr ;
+    rdfs:subClassOf og:Personne .
+
+og:Pays a rdfs:Class ;
+    rdfs:label "Pays"@fr .
+
+og:Edition a rdfs:Class ;
+    rdfs:label "Édition des Jeux"@fr .
+
+og:JeuxEte a rdfs:Class ;
+    rdfs:label "Jeux d’été"@fr ;
+    rdfs:subClassOf og:Edition .
+
+og:JeuxHiver a rdfs:Class ;
+    rdfs:label "Jeux d’hiver"@fr ;
+    rdfs:subClassOf og:Edition .
+
+og:Sport a rdfs:Class ;
+    rdfs:label "Sport"@fr .
+
+og:Epreuve a rdfs:Class ;
+    rdfs:label "Épreuve"@fr .
+
+og:participeA a rdf:Property ;
+    rdfs:label "participe à"@fr ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Epreuve .
+
+og:aGagneMedaille a rdf:Property ;
+    rdfs:label "a gagné une médaille à"@fr ;
+    rdfs:subPropertyOf og:participeA ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Epreuve .
+
+og:aGagneOr a rdf:Property ;
+    rdfs:label "a gagné l’or à"@fr ;
+    rdfs:subPropertyOf og:aGagneMedaille ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Epreuve .
+
+og:aGagneArgent a rdf:Property ;
+    rdfs:label "a gagné l’argent à"@fr ;
+    rdfs:subPropertyOf og:aGagneMedaille ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Epreuve .
+
+og:aGagneBronze a rdf:Property ;
+    rdfs:label "a gagné le bronze à"@fr ;
+    rdfs:subPropertyOf og:aGagneMedaille ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Epreuve .
+
+og:epreuveDe a rdf:Property ;
+    rdfs:label "est une épreuve de"@fr ;
+    rdfs:domain og:Epreuve ;
+    rdfs:range og:Sport .
+
+og:deLEdition a rdf:Property ;
+    rdfs:label "appartient à l’édition"@fr ;
+    rdfs:domain og:Epreuve ;
+    rdfs:range og:Edition .
+
+og:representePays a rdf:Property ;
+    rdfs:label "représente le pays"@fr ;
+    rdfs:domain og:Athlete ;
+    rdfs:range og:Pays .
+
+og:annee a rdf:Property ;
+    rdfs:label "année"@fr ;
+    rdfs:domain og:Edition ;
+    rdfs:range xsd:integer .
+
+og:villeHote a rdf:Property ;
+    rdfs:label "ville hôte"@fr ;
+    rdfs:domain og:Edition ;
+    rdfs:range xsd:string .
+
+og:age a rdf:Property ;
+    rdfs:label "âge"@fr ;
+    rdfs:domain og:Athlete ;
+    rdfs:range xsd:integer .
+
+og:taille a rdf:Property ;
+    rdfs:label "taille en centimètres"@fr ;
+    rdfs:domain og:Athlete ;
+    rdfs:range xsd:decimal .
+
+og:poids a rdf:Property ;
+    rdfs:label "poids en kilogrammes"@fr ;
+    rdfs:domain og:Athlete ;
+    rdfs:range xsd:decimal .
+
+foaf:name a rdf:Property ;
+    rdfs:label "nom"@fr ;
+    rdfs:domain foaf:Person ;
+    rdfs:range xsd:string .
+
+foaf:gender a rdf:Property ;
+    rdfs:label "genre"@fr ;
+    rdfs:domain foaf:Person ;
+    rdfs:range xsd:string .

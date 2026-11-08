@@ -1,0 +1,263 @@
+{
+  "info": {
+    "_postman_id": "b58c5379-8695-40f3-aa48-cb44249530ce",
+    "name": "OlympiaGraph API",
+    "description": "Collection de démonstration de l’API REST OlympiaGraph. L’application doit être démarrée localement sur le port 8080.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "État du service",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Lister les sports",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/sports"
+      }
+    },
+    {
+      "name": "Lister les éditions",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/editions"
+      }
+    },
+    {
+      "name": "Rechercher des athlètes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/athletes?name=bolt&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "athletes"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "bolt"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fiche athlète (ID 94406)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/athletes/94406"
+      }
+    },
+    {
+      "name": "Catalogue des requêtes SPARQL",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries"
+      }
+    },
+    {
+      "name": "Requête 1 - Top 10 des pays par médailles d’or",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/1"
+      }
+    },
+    {
+      "name": "Requête 2 - Athlètes les plus médaillés",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/queries/2?minMedals=3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "queries",
+            "2"
+          ],
+          "query": [
+            {
+              "key": "minMedals",
+              "value": "3"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Requête 3 - Médailles par sport",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/3"
+      }
+    },
+    {
+      "name": "Requête 4 - Âge moyen des médaillés par sport",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/4"
+      }
+    },
+    {
+      "name": "Requête 5 - Pays sans médaille dans l’échantillon",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/5"
+      }
+    },
+    {
+      "name": "Requête 6 - Sports été et hiver",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/6"
+      }
+    },
+    {
+      "name": "Requête 7 - Participants d’une épreuve (avec inférence)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/queries/7?event=Athletics%20Men%27s%20100%20metres&games=2000%20Summer",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "queries",
+            "7"
+          ],
+          "query": [
+            {
+              "key": "event",
+              "value": "Athletics Men's 100 metres"
+            },
+            {
+              "key": "games",
+              "value": "2000 Summer"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Requête 8 - Palmarès d’un athlète (ID 94406, avec inférence)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/queries/8?athleteId=94406",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "queries",
+            "8"
+          ],
+          "query": [
+            {
+              "key": "athleteId",
+              "value": "94406"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Requête 9 - Athlètes plus âgés que la moyenne de leur sport",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/9"
+      }
+    },
+    {
+      "name": "Requête 10 - Catégorie d’âge des médaillés",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/10"
+      }
+    },
+    {
+      "name": "Inférence - Comparaison des comptages",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/inference/compare"
+      }
+    },
+    {
+      "name": "Inférence - Exemples de triplets déduits",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/inference/deductions?limit=20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "inference",
+            "deductions"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "20"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Erreur 400 - Identifiant non numérique",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/athletes/abc"
+      }
+    },
+    {
+      "name": "Erreur 404 - Requête inconnue",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/queries/99"
+      }
+    }
+  ]
+}
